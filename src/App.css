@@ -98,5 +98,9 @@ h4 {
 @media (max-width: 480px) {
   .Title {
     font-size: 3em;
+    margin-top: 50px !important;
+  }
+  .Video {
+    margin-top: 50px !important;
   }
 }

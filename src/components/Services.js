@@ -43,7 +43,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
     margin: 0;
-
+    margin-top: 50px;
     @media (max-width: 1200px) {
         padding: 0 20px;
     }
