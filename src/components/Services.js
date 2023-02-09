@@ -16,7 +16,7 @@ export default function Services() {
     return (
         <Container id="Services">
             <Title data-aos="flip-down" className="Title">Full Service Instrument Repair and Vintage Restoration</Title>
-            <StyledVideo className="Video" src={video} autoPlay muted loop></StyledVideo>
+            <StyledVideo className="Video" src={video} autoPlay muted loop playsinline></StyledVideo>
             <hr className="divider"/>
             <Text>
                 <Graphic data-aos="fade-right" ><img src={graphic}/></Graphic>
