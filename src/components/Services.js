@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import graphic from '../assets/topGraphic.png';
-
-
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Services() {
+    useEffect(() => {
+        AOS.init({
+            easing: 'ease',
+            duration: 1000,
+        });
+    }, []);
+
     return (
         <Container id="Services">
-            <Title className="Title">Full Service Instrument Repair and Vintage Restoration</Title>
+            <Title data-aos="flip-down" className="Title">Full Service Instrument Repair and Vintage Restoration</Title>
             <hr className="divider"/>
             <Text>
-                <Graphic><img src={graphic}/></Graphic>
-                <Notes>
+                <Graphic data-aos="fade-right" ><img src={graphic}/></Graphic>
+                <Notes data-aos="fade-left" >
                     <Note>
                         <h2>Turn Around</h2>
                         <p>For most repair services such as set up work and refrets I am able to keep a turn around time much shorter then many of the big shops in town. Expect one week or less on most repairs.</p>

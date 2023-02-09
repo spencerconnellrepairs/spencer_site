@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
 import graphic from '../assets/bottomGraphic.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default function Contact() {
+    useEffect(() => {
+        AOS.init({
+            easing: 'ease',
+            duration: 1000,
+        });
+    }, []);
+
     return (
         <>
             <hr className="divider"/>
             <Container id="Contact">
-                <Form>
+                <Form data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
                     <h1>Let's Connect!</h1>
                     <TextField fullWidth required id="name-input" label="Name" variant="outlined" />
                     <TextField fullWidth required id="name-input" label="Email" variant="outlined" />
                     <TextField multiline rows={4} fullWidth required id="name-input" label="Message" variant="outlined" />
                     <button>Send</button>
                 </Form>
-                <Graphic src={graphic} /> 
+                <Graphic data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" src={graphic} /> 
             </Container>
         </>
     )
