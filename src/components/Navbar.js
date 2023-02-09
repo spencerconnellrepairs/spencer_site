@@ -17,14 +17,19 @@ const Logo = () => {
 };
 
 const Hamburger = () => {
+  const [highlight, setHighlight] = useState(false);
+
+  const hamburgerHover = (e, hover) => {
+    setHighlight(hover);
+  }
+
+  const name = highlight ? 'Hamburger Hover' : 'Hamburger';
   return(
-    // <a className="Hamburger">
-    //   <span/>
-    //   <span/>
-    //   <span/>
-    // </a>
-    <a className="Hamburger">
-      <img src={instagramLogo}/>
+    <a >
+      <img className={name} 
+      onMouseEnter={(e) => hamburgerHover(e, true)} 
+      onMouseLeave={(e) => hamburgerHover(e, false)} 
+      src={instagramLogo}/>
     </a>
   )
 }
@@ -42,8 +47,8 @@ export default function Navbar() {
     }
   }
 
-  const instagramHover = () => {
-    setInstagramHighlight(!instagramHighlight);
+  const instagramHover = (hover) => {
+    setInstagramHighlight(hover);
   }
 
   const highlightColor = instagramHighlight ? '#e57b5a' : null;
@@ -56,7 +61,7 @@ export default function Navbar() {
         <LinkContainer className='Links'>
           <li><a onClick={() => clickHandler('Services')}>Services</a></li>
           <li><a onClick={() => clickHandler('Contact')}>Contact</a></li>
-          <li><a onClick={() => clickHandler('Instagram')} onMouseOver={instagramHover} onMouseLeave={instagramHover}><InstagramIcon htmlColor={highlightColor} fontSize='inherit'/></a></li>
+          <li><a href="https://www.instagram.com/s.connellguitarrepair/" onMouseOver={() => {instagramHover(true)}} onMouseLeave={() => {instagramHover(false)}}><InstagramIcon htmlColor={highlightColor} fontSize='inherit'/></a></li>
         </LinkContainer>
       </nav>
     </Container>
@@ -91,6 +96,7 @@ const LinkContainer = styled.div`
 
   a {
     text-decoration: underline rgba(0,0,0,0);
+    color: #584330;
     margin: 0 20px 0 0;
     transition: all ease 1s;
     font-size: 1.2em;

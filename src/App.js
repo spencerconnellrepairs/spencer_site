@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Services from './components/Services';
 import Contact from './components/Contact';
@@ -21,25 +21,39 @@ const Content = styled.div`
 `;
 
 function App() {
-  const handleShrink = () => {
+
+  const scrollShrink = () => {
     console.log(document.documentElement.scrollTop)
     if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
       document.getElementById("Navbar").style.height = "100px";
-    } else {
-      if (window.innerWidth >= 1200)
-      document.getElementById("Navbar").style.height = "300px";
-      else if (window.innerWidth >= 1000)
+    } 
+    else {
+      if (window.innerWidth <= 1000)
+      document.getElementById("Navbar").style.height = "100px";
+      else if (window.innerWidth <= 1200)
       document.getElementById("Navbar").style.height = "200px";
+      else
+      document.getElementById("Navbar").style.height = "300px";
     }
+
+  }
+
+  const resizeShrink = () => {
+    if (window.innerWidth <= 1000)
+    document.getElementById("Navbar").style.height = "100px";
+    else if (window.innerWidth <= 1200)
+    document.getElementById("Navbar").style.height = "200px";
+    else
+    document.getElementById("Navbar").style.height = "300px";
   }
   
   useEffect( () => {
-    window.addEventListener('scroll', handleShrink);
-    window.addEventListener('resize', handleShrink);
+    window.addEventListener('scroll', scrollShrink);
+    window.addEventListener('resize', resizeShrink);
 
     return () => {
-      window.removeEventListener('scroll', handleShrink);
-      window.removeEventListener('resize', handleShrink);
+      window.removeEventListener('scroll', scrollShrink);
+      window.removeEventListener('resize', resizeShrink);
     }
   }, []);
 

@@ -32,13 +32,16 @@
   justify-content: space-between;
   width: 60px;
   height: 70px;
+  cursor: pointer;
+  transition: 0s;
 }
 
-.Hamburger span {
-  height: 7px;
-  width: 100%;
-  background-color: #584330;
-  border-radius: 10px;
+.Hover {
+  filter: brightness(0) 
+  saturate(100%) invert(63%) 
+  sepia(9%) saturate(2860%) 
+  hue-rotate(326deg) brightness(90%) 
+  contrast(99%);
 }
 
 #Navbar {
@@ -89,8 +92,5 @@ h4 {
   }
   .Links li{
     display: none;
-  }
-  h1 {
-    font-size: 2.5em
   }
 }
