@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import video from '../assets/video.webm';
 import styled from 'styled-components';
 import graphic from '../assets/topGraphic.png';
 import AOS from 'aos';
@@ -15,15 +16,16 @@ export default function Services() {
     return (
         <Container id="Services">
             <Title data-aos="flip-down" className="Title">Full Service Instrument Repair and Vintage Restoration</Title>
+            <StyledVideo className="Video" src={video} autoPlay muted loop></StyledVideo>
             <hr className="divider"/>
             <Text>
                 <Graphic data-aos="fade-right" ><img src={graphic}/></Graphic>
-                <Notes data-aos="fade-left" >
-                    <Note>
+                <Notes>
+                    <Note data-aos="fade-left">
                         <h2>Turn Around</h2>
                         <p>For most repair services such as set up work and refrets I am able to keep a turn around time much shorter then many of the big shops in town. Expect one week or less on most repairs.</p>
                     </Note>
-                    <Note>
+                    <Note data-aos="fade-left">
                         <h2>Restoration</h2>
                         <p>I offer restoration work with an emphasis on pairing musicians and an instrument with their ideal set up and tone. From neck resets to fret work and structural repairs, my focus is to return a guitar at its peak tone and playability. </p>
                     </Note>
@@ -37,7 +39,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
 `;
 
 const Title = styled.h1`
@@ -47,6 +48,11 @@ const Title = styled.h1`
         padding: 0 20px;
     }
 `
+
+const StyledVideo = styled.video`
+margin-top: 100px;
+  width: 118%;
+`;
 
 const Graphic = styled.div`
     width: 50%;

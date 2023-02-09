@@ -94,3 +94,9 @@ h4 {
     display: none;
   }
 }
+
+@media (max-width: 480px) {
+  .Title {
+    font-size: 3em;
+  }
+}

@@ -2,24 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Services from './components/Services';
 import Contact from './components/Contact';
-import logo from './logo.svg';
-import video from './assets/video.webm';
 import styled from 'styled-components';
 import './App.css';
-
-const StyledVideo = styled.video`
-  width: 118%;
-`;
-
-const Content = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
-  overflow-x: hidden;
-`;
-
 function App() {
 
   const scrollShrink = () => {
@@ -35,7 +19,6 @@ function App() {
       else
       document.getElementById("Navbar").style.height = "300px";
     }
-
   }
 
   const resizeShrink = () => {
@@ -61,12 +44,20 @@ function App() {
     <div className="App" >
         <Navbar/>
         <Content>
-          <StyledVideo id="Video" src={video} autoPlay muted loop></StyledVideo>
           <Services/>
           <Contact/>
         </Content>
     </div>
   );
 }
+
+const Content = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
 
 export default App;
