@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Readex+Pro');
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #faf4d8;
+  color: #584330;
+  min-height: 100vh;
+  position: relative;
+  font-family: 'Readex Pro';
+  padding: 0 20%;
+}
+
+.App * {
+  transition: all ease 0.5s;
+}
+
+.divider {
+  width: 100%;
+  border-top: dotted 5px;
+  margin: 100px 0;
+}
+
+.Hamburger {
+  position: absolute;
+  top: 1em;
+  right: 0.4rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60px;
+  height: 70px;
+}
+
+.Hamburger span {
+  height: 7px;
+  width: 100%;
+  background-color: #584330;
+  border-radius: 10px;
+}
+
+#Navbar {
+  height: 300px;
+}
+
+img {
+  object-fit: contain;
+}
+
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+@media (max-width: 1920px) {
+  .App {
+    padding: 0 10%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .App {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  #Navbar {
+    height: 200px;
+  }
+  .Logo{
+    position: absolute;
+    left: 0;
+  }
+  .Hamburger{
+    display: flex;
+  }
+  .Links li{
+    display: none;
+  }
+  #Services {
+    /* margin-top: 36px; */
+    
+  }
+  h1 {
+    font-size: 2.5em
+  }
+}
