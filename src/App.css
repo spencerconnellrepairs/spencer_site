@@ -48,6 +48,22 @@
   height: 300px;
 }
 
+.VideoContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.VolumeContainer {
+  position: absolute;
+  bottom: 0.5%;
+  right: 0.23%;
+  height: 12%;
+  background: #faf4d8;
+  border: 10px solid #db725d;
+  border-radius: 15px;
+}
+
 img {
   object-fit: contain;
 }
@@ -102,5 +118,8 @@ h4 {
   }
   .Video {
     margin-top: 50px !important;
+  }
+  .VolumeContainer {
+    border: 5px solid #db725d;;
   }
 }

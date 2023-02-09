@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import styled from 'styled-components';
 import logo from '../assets/logoAlt.png';
@@ -51,7 +49,7 @@ export default function Navbar() {
     setInstagramHighlight(hover);
   }
 
-  const highlightColor = instagramHighlight ? '#e57b5a' : null;
+  const highlightColor = instagramHighlight ? '' : null;
 
   return (
     <Container id='Navbar'>

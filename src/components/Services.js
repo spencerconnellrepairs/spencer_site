@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
-import video from '../assets/video.webm';
+import React, { useState, useEffect } from 'react';
+import video from '../assets/croppedVideo.mp4';
 import styled from 'styled-components';
 import graphic from '../assets/topGraphic.png';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function Services() {
+    const [volume, setVolume] = useState(false);
     useEffect(() => {
         AOS.init({
             easing: 'ease',
@@ -13,10 +16,25 @@ export default function Services() {
         });
     }, []);
 
+    const toggleVolume = () => {
+        setVolume(!volume);
+    }
+    const iconStyle = {
+        width: '100%',
+        height: '100%',
+    }
+
     return (
         <Container id="Services">
             <Title data-aos="flip-down" className="Title">Full Service Instrument Repair and Vintage Restoration</Title>
-            <StyledVideo className="Video" src={video} autoPlay muted loop playsinline></StyledVideo>
+            <div className='VideoContainer'>
+                <StyledVideo className="Video" src={video} autoPlay muted={!volume} loop playsinline></StyledVideo>
+                <div className="VolumeContainer" onClick={toggleVolume}>
+                    {volume
+                        ? <VolumeUpIcon style={iconStyle}/>
+                        : <VolumeOffIcon style={iconStyle}/>}
+                </div>
+            </div>
             <hr className="divider"/>
             <Text>
                 <Graphic data-aos="fade-right" ><img src={graphic}/></Graphic>
@@ -51,7 +69,7 @@ const Title = styled.h1`
 
 const StyledVideo = styled.video`
 margin-top: 100px;
-  width: 118%;
+  width: 100%;
 `;
 
 const Graphic = styled.div`
