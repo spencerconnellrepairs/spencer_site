@@ -25,7 +25,7 @@ const Hamburger = () => {
 
   const name = highlight ? 'Hamburger Hover' : 'Hamburger';
   return(
-    <a >
+    <a href="https://www.instagram.com/s.connellguitarrepair/">
       <img className={name} 
       onMouseEnter={(e) => hamburgerHover(e, true)} 
       onMouseLeave={(e) => hamburgerHover(e, false)} 
