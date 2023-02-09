@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import video from '../assets/croppedVideo.mp4';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import videoSrc from '../assets/croppedVideo.mp4';
 import styled from 'styled-components';
 import graphic from '../assets/topGraphic.png';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
@@ -9,11 +9,17 @@ import 'aos/dist/aos.css';
 
 export default function Services() {
     const [volume, setVolume] = useState(false);
+    const video = useRef();
     useEffect(() => {
         AOS.init({
             easing: 'ease',
             duration: 1000,
         });
+        video.current.play();
+    }, []);
+    
+    useLayoutEffect(() => {
+        video.current.play();
     }, []);
 
     const toggleVolume = () => {
@@ -28,9 +34,7 @@ export default function Services() {
         <Container id="Services">
             <Title data-aos="flip-down" className="Title">Full Service Instrument Repair and Vintage Restoration</Title>
             <div className='VideoContainer'>
-                <StyledVideo className="Video" autoPlay muted={!volume} loop playsinline>
-                <source src={video} type="video/mp4" />
-                </StyledVideo>
+                <StyledVideo ref={video} src={videoSrc} className="Video" autoPlay muted={!volume} loop playsinline/>
                 <div className="VolumeContainer" onClick={toggleVolume}>
                     {volume
                         ? <VolumeUpIcon style={iconStyle}/>
