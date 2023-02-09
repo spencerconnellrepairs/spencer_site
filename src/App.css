@@ -78,7 +78,7 @@ h4 {
 
 @media (max-width: 1000px) {
   #Navbar {
-    height: 200px;
+    height: 100px;
   }
   .Logo{
     position: absolute;
@@ -89,10 +89,6 @@ h4 {
   }
   .Links li{
     display: none;
-  }
-  #Services {
-    /* margin-top: 36px; */
-    
   }
   h1 {
     font-size: 2.5em
