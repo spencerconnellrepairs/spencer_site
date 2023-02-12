@@ -22,13 +22,14 @@ const Hamburger = () => {
   }
 
   const name = highlight ? 'Hamburger Hover' : 'Hamburger';
+  const instaLink ='https://www.instagram.com/s.connellguitarrepair/';
+  
   return(
-    // <a href="https://www.instagram.com/s.connellguitarrepair/">
       <img className={name} 
       onMouseEnter={(e) => hamburgerHover(e, true)} 
       onMouseLeave={(e) => hamburgerHover(e, false)} 
+      onClick={()=> window.open(instaLink, "_blank")}
       src={instagramLogo}/>
-    // </a>
   )
 }
 
