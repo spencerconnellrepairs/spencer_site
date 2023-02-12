@@ -62,6 +62,8 @@
   background: #faf4d8;
   border: 10px solid #db725d;
   border-radius: 15px;
+  max-width: 10%;
+
 }
 
 img {
