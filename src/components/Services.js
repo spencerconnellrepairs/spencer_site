@@ -37,7 +37,7 @@ export default function Services() {
         <Container id="Services">
             <Title data-aos="flip-down" className="Title">Full Service Instrument Repair and Vintage Restoration</Title>
             <div className='VideoContainer'>
-                <StyledVideo ref={video} src={videoSrc} className="Video" autoPlay muted={!volume} loop playsinline/>
+                <StyledVideo ref={video} src={videoSrc} className="Video" autoPlay muted={!volume} playsInline loop/>
                 <div className="VolumeContainer" onClick={toggleVolume}>
                     {volume
                         ? <VolumeUpIcon style={iconStyle}/>
