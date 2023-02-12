@@ -9,22 +9,25 @@ import 'aos/dist/aos.css';
 
 export default function Services() {
     const [volume, setVolume] = useState(false);
+    const [playLayout, setPlayLayout] = useState(false);
+
     const video = useRef();
     useEffect(() => {
         AOS.init({
             easing: 'ease',
             duration: 1000,
         });
-        video.current.play();
+        setPlayLayout(true);
     }, []);
     
     useLayoutEffect(() => {
         video.current.play();
-    }, []);
+    }, [playLayout]);
 
     const toggleVolume = () => {
         setVolume(!volume);
     }
+
     const iconStyle = {
         width: '100%',
         height: '100%',
