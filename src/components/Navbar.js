@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import styled from 'styled-components';
-import logo from '../assets/logoAlt.png';
+import logo from '../assets/logoAlt.webp';
 import instagramLogo from '../assets/instagram-250.svg'
 
 

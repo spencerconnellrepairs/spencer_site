@@ -1,13 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
-import graphic from '../assets/bottomGraphic.png';
+import graphic from '../assets/bottomGraphic.webp';
 import emailjs from '@emailjs/browser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
 export default function Contact() {
+    const [messageSent, setMessageSent] = useState(false);
     const form = useRef();
 
     useEffect(() => {
@@ -21,7 +22,7 @@ export default function Contact() {
         e.preventDefault();
         emailjs.sendForm('service_ghtbrrm', 'template_f8ogona', form.current, 'K3ZlDAjHbpO1L90BK')
             .then((result) => {
-                console.log(result.text);
+                setMessageSent(true);
             }, (error) => {
                 console.log(error.text);
             })
@@ -31,7 +32,7 @@ export default function Contact() {
         <>
             <hr className="divider"/>
             <Container id="Contact">
-                <Form ref={form} data-aos="fade-up">
+                { !messageSent ? <Form ref={form} data-aos="fade-up">
                     <h1>Let's Connect!</h1>
                     <TextField fullWidth required id="name-input" 
                         label="Name" variant="outlined" name='from_name'/>
@@ -41,7 +42,8 @@ export default function Contact() {
                         required id="name-input" label="Message"
                         variant="outlined" name='message' />
                     <button onClick={sendEmail}>Send</button>
-                </Form>
+                </Form> 
+                : <h1>Thank you!</h1>}
                 <Graphic data-aos="fade-up" src={graphic} /> 
             </Container>
         </>

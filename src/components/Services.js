@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import videoSrc from '../assets/croppedVideo.mp4';
 import styled from 'styled-components';
-import graphic from '../assets/topGraphic.png';
+import graphic from '../assets/topGraphic.webp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import AOS from 'aos';
