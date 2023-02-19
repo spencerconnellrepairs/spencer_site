@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import TextField from '@mui/material/TextField';
 import graphic from '../assets/bottomGraphic.png';
+import emailjs from '@emailjs/browser';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
 export default function Contact() {
+    const form = useRef();
+
     useEffect(() => {
         AOS.init({
             easing: 'ease',
@@ -14,16 +17,30 @@ export default function Contact() {
         });
     }, []);
 
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs.sendForm('service_ghtbrrm', 'template_f8ogona', form.current, 'K3ZlDAjHbpO1L90BK')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            })
+    }
+
     return (
         <>
             <hr className="divider"/>
             <Container id="Contact">
-                <Form data-aos="fade-up">
+                <Form ref={form} data-aos="fade-up">
                     <h1>Let's Connect!</h1>
-                    <TextField fullWidth required id="name-input" label="Name" variant="outlined" />
-                    <TextField fullWidth required id="name-input" label="Email" variant="outlined" />
-                    <TextField multiline rows={4} fullWidth required id="name-input" label="Message" variant="outlined" />
-                    <button>Send</button>
+                    <TextField fullWidth required id="name-input" 
+                        label="Name" variant="outlined" name='from_name'/>
+                    <TextField fullWidth required id="name-input" 
+                        label="Email" variant="outlined" name='from_email' />
+                    <TextField multiline rows={4} fullWidth
+                        required id="name-input" label="Message"
+                        variant="outlined" name='message' />
+                    <button onClick={sendEmail}>Send</button>
                 </Form>
                 <Graphic data-aos="fade-up" src={graphic} /> 
             </Container>
@@ -50,7 +67,7 @@ const Container = styled.div`
     }
 `;
 
-const Form = styled.div`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
